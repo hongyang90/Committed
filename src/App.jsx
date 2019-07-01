@@ -6,18 +6,27 @@ class App extends React.Component {
   constructor(props){
     super(props);
     this.state = {
+      org: '',
       repos: [],
       commits: []
     };
     this.updateInput = this.updateInput.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleSubmit(){
-
+  handleSubmit(e){
+    console.log(this.state.org)
+    e.preventDefault();
+    let location = this.state.org.trim();
+    fetch(`https://api.github.com/orgs/${location}/repos`)
+      .then(res => res.json())
+      .then(res => this.setState({repos: res.sort((a,b)=> b.forks - a.forks)}))
+      .then(() => console.log(this.state.repos))
+      
   }
 
-  updateInput(){
-
+  updateInput(e){
+    this.setState({org: e.currentTarget.value});
   }
 
 
@@ -28,8 +37,10 @@ class App extends React.Component {
           Committed App
         </h1>
         <div>
-          <input type="text" onChange={this.updateInput} placeholder='Enter a organization ie: facebook'/>
-          <button>Search</button>
+          <form action="" onSubmit={this.handleSubmit}>
+            <input type="text" onChange={this.updateInput} placeholder='Enter a organization ie: facebook'/>
+            <button type='submit' >Search</button>
+          </form>
         </div>
         <Repos />
       </div>
