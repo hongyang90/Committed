@@ -1,0 +1,38 @@
+.header {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 30%;
+    min-height: 200px;
+    background: blue;
+    width: 100%;
+
+    h1 {
+        font-size: 65px;
+        width: 50%;
+        text-align: center;
+        color: white;
+        letter-spacing: .1em
+    }
+
+    form {
+        display: flex;
+        justify-content: center;
+
+        input {
+
+        }
+
+        button {
+            
+        }
+
+
+    }
+
+
+
+
+
+}

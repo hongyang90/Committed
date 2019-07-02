@@ -35,16 +35,19 @@ class App extends React.Component {
     return (
 
       <div className="App">
-        <h1>
-          Committed App
-        </h1>
-        <div>
+        <div className='header'>
+          <h1>
+            Committed!
+          </h1>
           <form action="" onSubmit={this.handleSubmit}>
             <input type="text" onChange={this.updateInput} placeholder='Enter a organization ie: facebook'/>
             <button type='submit' >Search</button>
           </form>
         </div>
-        <Repos org={this.state.org} repos={this.state.repos}/>
+        <div>
+          <Repos org={this.state.org} repos={this.state.repos}/>
+
+        </div>
       </div>
     );
 
