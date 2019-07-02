@@ -7,8 +7,7 @@ class App extends React.Component {
     super(props);
     this.state = {
       org: '',
-      repos: [],
-      commits: []
+      repos: []
     };
     this.updateInput = this.updateInput.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -32,7 +31,7 @@ class App extends React.Component {
 
 
   render () {
-    console.log(this.state.repos)
+    // console.log(this.state.repos)
     return (
 
       <div className="App">
@@ -45,7 +44,7 @@ class App extends React.Component {
             <button type='submit' >Search</button>
           </form>
         </div>
-        <Repos repos={this.state.repos}/>
+        <Repos org={this.state.org} repos={this.state.repos}/>
       </div>
     );
 

@@ -6,8 +6,9 @@ class Repos extends React.Component {
 
     render (){
         let repos = this.props.repos.map(repo =>{
-            return <RepoItem key={repo.id} repo={repo}/>
+            return <RepoItem key={repo.id} repo={repo} org={this.props.org}/>
         });
+
         return (
             <div>
                 {repos}
