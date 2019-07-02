@@ -1,11 +1,13 @@
 import React from 'react';
+import CommitItem from './CommitItem';
 
 class RepoItem extends React.Component {
     constructor(props){
         super(props);
         this.state = {name: this.props.repo.name,
                     org: this.props.org,
-                    commits: []
+                    commits: [],
+                    clicked: false
         };
         this.showCommit = this.showCommit.bind(this);
     }
@@ -13,25 +15,35 @@ class RepoItem extends React.Component {
     showCommit() {
         fetch(`https://api.github.com/repos/${this.state.org}/${this.state.name}/commits`)
             .then(res => res.json())
-            .then(res => this.setState({ commits: res }))
+            .then(res => {
+                // console.log(Array.isArray(res))
+                if (Array.isArray(res)) {
+                    this.setState({ commits: res });
+                } else {
+                    this.setState({commits: []});
+                }
+                this.setState({clicked: !this.state.clicked})
+            })
             .then(res => console.log(this.state.commits))
     }
 
     render () {
-        let commits;
+        let commits = this.state.commits.map( commit => {
+            return <CommitItem key={commit.node_id} commit={commit.commit} />
+        });
+
         return (
             <div>
                 <h1 onClick={this.showCommit}>
                     {this.state.name}
                 </h1>
                 <div>
-                    {/* {this.state.commits} */}
+                    { this.state.clicked ? commits : <div></div> }
                 </div>
             </div>
 
         )
     }
-
 }
 
 export default RepoItem;
