@@ -15,13 +15,14 @@ class App extends React.Component {
   }
 
   handleSubmit(e){
-    console.log(this.state.org)
+    // console.log(this.state.org)
     e.preventDefault();
     let location = this.state.org.trim();
     fetch(`https://api.github.com/orgs/${location}/repos`)
       .then(res => res.json())
       .then(res => this.setState({repos: res.sort((a,b)=> b.forks - a.forks)}))
-      .then(() => console.log(this.state.repos))
+      // .then(res => this.setState({repos: res}))
+      // .then(() => console.log(this.state.repos))
       
   }
 
@@ -31,7 +32,9 @@ class App extends React.Component {
 
 
   render () {
+    console.log(this.state.repos)
     return (
+
       <div className="App">
         <h1>
           Committed App
@@ -42,7 +45,7 @@ class App extends React.Component {
             <button type='submit' >Search</button>
           </form>
         </div>
-        <Repos />
+        <Repos repos={this.state.repos}/>
       </div>
     );
 
