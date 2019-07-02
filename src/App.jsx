@@ -39,11 +39,15 @@ class App extends React.Component {
           <h1>
             Committed!
           </h1>
+          <h2>
+            Search organization repos and their commits
+          </h2>
           <form action="" onSubmit={this.handleSubmit}>
             <input type="text" onChange={this.updateInput} placeholder='Enter a organization ie: facebook'/>
             <button type='submit' >Search</button>
           </form>
         </div>
+
         <div>
           <Repos org={this.state.org} repos={this.state.repos}/>
 

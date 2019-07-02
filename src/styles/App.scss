@@ -23,8 +23,8 @@ time, mark, audio, video {
   box-sizing: inherit;
   background: transparent;
   font-size: 100%;
-  font-family: 'Open Sans', sans-serif;
-
+  // font-family: 'Open Sans', sans-serif;
+  font-family: 'Muli', sans-serif;
 
 }
 
@@ -52,11 +52,18 @@ table {
 	border-spacing: 0;
 }
 
-// .App {
-//   display: flex;
-//   flex-direction: column;
-//   height: 100%;
-//   width: 100%;
-// }
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
 
-@import './header';
+button:hover {
+  cursor: pointer;
+  border: 1px solid white;
+  color: gray;
+}
+
+@import './_header.scss';
