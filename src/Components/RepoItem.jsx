@@ -33,10 +33,15 @@ class RepoItem extends React.Component {
         });
 
         return (
-            <div>
-                <h1 onClick={this.showCommit}>
-                    {this.state.name}
-                </h1>
+            <div className='repoItem'>
+                <div className='repoInfo'>
+                    <h1 onClick={this.showCommit} className='repoName'>
+                        {this.state.name.toUpperCase()}
+                    </h1>
+                    <p className='forks'>
+                        {this.props.repo.forks}
+                    </p>
+                </div>
                 <div>
                     { this.state.clicked ? commits : <div></div> }
                 </div>

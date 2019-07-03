@@ -19,7 +19,11 @@ class App extends React.Component {
     let location = this.state.org.trim();
     fetch(`https://api.github.com/orgs/${location}/repos`)
       .then(res => res.json())
-      .then(res => this.setState({repos: res.sort((a,b)=> b.forks - a.forks)}))
+      .then(res => {
+        if (Array.isArray(res)) {
+            this.setState({ repos: res.sort((a, b) => b.forks - a.forks) })
+          }
+      });
       // .then(res => this.setState({repos: res}))
       // .then(() => console.log(this.state.repos))
       
@@ -31,7 +35,7 @@ class App extends React.Component {
 
 
   render () {
-    // console.log(this.state.repos)
+    console.log(this.state.repos)
     return (
 
       <div className="App">
@@ -47,11 +51,7 @@ class App extends React.Component {
             <button type='submit' >Search</button>
           </form>
         </div>
-
-        <div>
           <Repos org={this.state.org} repos={this.state.repos}/>
-
-        </div>
       </div>
     );
 

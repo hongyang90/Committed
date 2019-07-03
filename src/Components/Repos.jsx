@@ -10,7 +10,7 @@ class Repos extends React.Component {
         });
 
         return (
-            <div>
+            <div className='results'>
                 {repos}
             </div>
         )
