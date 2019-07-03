@@ -7,6 +7,7 @@
     width: 90%;
     background: #01BAEF;
     padding-top: 2%;
+    
 
     .repoItem {
         display: flex;
@@ -17,7 +18,7 @@
         width: 80%;
         margin: 5px 0px 5px 0px;
         border-bottom: 2px solid #0B4F6C;
-
+        
         .repoInfo {
             display: flex;
             flex-direction: column;
@@ -26,10 +27,11 @@
             height: 100%;
             width: 100%;
             background: white;
-
+            border-radius: 5px 5px 0px 0px;
             .repoName {
                 margin-bottom: 1%;
-                font-size: 20px;
+                font-size: 22px;
+                color: #0B4F6C;
             }
 
             .description {
@@ -37,7 +39,6 @@
                 height: 40%;
                 word-wrap: normal;
                 text-overflow: ellipsis;
-                
                 // text-align: center;
             }
 
@@ -53,6 +54,10 @@
                 }
             }
 
+        }
+
+        .repoInfo:hover {
+            cursor: pointer;
         }
 
 

@@ -34,8 +34,8 @@ class RepoItem extends React.Component {
 
         return (
             <div className='repoItem'>
-                <div className='repoInfo'>
-                    <h1 onClick={this.showCommit} className='repoName'>
+                <div className='repoInfo' onClick={this.showCommit} >
+                    <h1 className='repoName'>
                        Repo Name: {this.state.name.toUpperCase()}
                     </h1>
                     <p className='description'>
@@ -43,12 +43,15 @@ class RepoItem extends React.Component {
                     </p>
                     <div className='repoStats'>
                         <p >
+                            <i className="fa fa-share-alt"></i>
                             Forks: {this.props.repo.forks}
                         </p>
                         <p>
+                            <i class="fa fa-eye"></i>
                             Watchers: {this.props.repo.watchers}
                         </p>
                         <p>
+                            <i class="fa fa-pen-square"></i>
                             Language: {this.props.repo.language}
                         </p>
                     </div>
