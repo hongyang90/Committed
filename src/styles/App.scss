@@ -60,11 +60,7 @@ table {
   width: 100%;
 }
 
-button:hover {
-  cursor: pointer;
-  border: 1px solid white;
-  color: gray;
-}
+
 
 @import './_header.scss';
 @import './results';

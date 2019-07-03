@@ -36,7 +36,7 @@ class RepoItem extends React.Component {
             <div className='repoItem'>
                 <div className='repoInfo'>
                     <h1 onClick={this.showCommit} className='repoName'>
-                       Repo: {this.state.name.toUpperCase()}
+                       Repo Name: {this.state.name.toUpperCase()}
                     </h1>
                     <p className='description'>
                         Description: {this.props.repo.description}

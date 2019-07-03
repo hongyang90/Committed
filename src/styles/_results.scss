@@ -3,9 +3,10 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-height: 400px;
+    min-height: 600px;
     width: 90%;
-    background: yellow;
+    background: #01BAEF;
+    padding-top: 2%;
 
     .repoItem {
         display: flex;
@@ -15,7 +16,7 @@
         height: 125px;
         width: 80%;
         margin: 5px 0px 5px 0px;
-        border-bottom: 1px solid gray;
+        border-bottom: 2px solid #0B4F6C;
 
         .repoInfo {
             display: flex;
@@ -28,6 +29,7 @@
 
             .repoName {
                 margin-bottom: 1%;
+                font-size: 20px;
             }
 
             .description {
