@@ -9,10 +9,12 @@ class App extends React.Component {
     this.state = {
       org: '',
       repos: [],
-      modal: false
+      commits: [],
+      clicked: false
     };
     this.updateInput = this.updateInput.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleModal = this.handleModal.bind(this);
   }
 
   handleSubmit(e){
@@ -35,6 +37,28 @@ class App extends React.Component {
     this.setState({org: e.currentTarget.value});
   }
 
+  // handleModal(idx) {
+  //   let repo = this.state.repos.filter(ele => ele.id === idx);
+  //   this.setState({commits: repo.commits})
+  // }
+
+  handleModal(idx) {
+    let repo = this.state.repos.filter(ele => ele.id === idx);
+
+    fetch(`https://api.github.com/repos/${this.state.org}/${repo.name}/commits`)
+      .then(res => res.json())
+      .then(res => {
+        // console.log(Array.isArray(res))
+        if (Array.isArray(res)) {
+          this.setState({ commits: res });
+        } else {
+          this.setState({ commits: [] });
+        }
+        this.setState({ clicked: !this.state.clicked });
+      })
+      .then(res => console.log(this.state.commits));
+  }
+
 
   render () {
     console.log(this.state.repos)
@@ -53,8 +77,8 @@ class App extends React.Component {
             <button type='submit' >Search</button>
           </form>
         </div>
-          <Repos org={this.state.org} repos={this.state.repos}/>
-          <Modal />
+          <Repos org={this.state.org} repos={this.state.repos} handleModal={this.handleModal} />
+          <Modal commits={this.state.commits}/>
       </div>
     );
 

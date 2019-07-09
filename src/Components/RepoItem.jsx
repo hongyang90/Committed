@@ -6,37 +6,39 @@ class RepoItem extends React.Component {
         super(props);
         this.state = {name: this.props.repo.name,
                     org: this.props.org,
-                    commits: [],
-                    clicked: false
+                    // commits: [],
+                    // clicked: false
         };
         this.showCommit = this.showCommit.bind(this);
     }
 
-    showCommit() {
-        fetch(`https://api.github.com/repos/${this.state.org}/${this.state.name}/commits`)
-            .then(res => res.json())
-            .then(res => {
-                // console.log(Array.isArray(res))
-                if (Array.isArray(res)) {
-                    this.setState({ commits: res });
-                } else {
-                    this.setState({commits: []});
-                }
-                this.setState({clicked: !this.state.clicked});
-            })
-            .then(res => console.log(this.state.commits));
-    }
+    // showCommit() {
+    //     fetch(`https://api.github.com/repos/${this.state.org}/${this.state.name}/commits`)
+    //         .then(res => res.json())
+    //         .then(res => {
+    //             // console.log(Array.isArray(res))
+    //             if (Array.isArray(res)) {
+    //                 this.setState({ commits: res });
+    //             } else {
+    //                 this.setState({commits: []});
+    //             }
+    //             this.setState({clicked: !this.state.clicked});
+    //         })
+    //         .then(res => console.log(this.state.commits));
+    // }
 
     render () {
-        let commits = this.state.commits.map( commit => {
-            return <CommitItem key={commit.node_id} commit={commit.commit} />
-        });
+        // let commits = this.state.commits.map( commit => {
+        //     return <CommitItem key={commit.node_id} commit={commit.commit} />
+        // });
 
         return (
             <div className='repoItem'>
                 <div className='repoInfo' onClick={this.showCommit} >
                     <h1 className='repoName'>
                        Repo Name: {this.state.name.toUpperCase()}
+                       <button className='commitbutton' 
+                       onClick={this.props.handleModal(this.props.repo.id)}>See Commits</button>
                     </h1>
                     <p className='description'>
                         Description: {this.props.repo.description}
@@ -56,11 +58,11 @@ class RepoItem extends React.Component {
                         </p>
                     </div>
                 </div>
-                <div id='modal'>
+                {/* <div id='modal'>
                     <div className='modalcontent'>
                         { this.state.clicked ? commits : <div></div> }
                     </div>
-                </div>
+                </div> */}
             </div>
 
         )
