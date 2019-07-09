@@ -1,13 +1,15 @@
 import React from 'react';
 import './styles/App.scss';
 import Repos from './Components/Repos';
+import Modal from './Components/Modal';
 
 class App extends React.Component {
   constructor(props){
     super(props);
     this.state = {
       org: '',
-      repos: []
+      repos: [],
+      modal: false
     };
     this.updateInput = this.updateInput.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -52,6 +54,7 @@ class App extends React.Component {
           </form>
         </div>
           <Repos org={this.state.org} repos={this.state.repos}/>
+          <Modal />
       </div>
     );
 

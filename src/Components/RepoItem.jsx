@@ -22,9 +22,9 @@ class RepoItem extends React.Component {
                 } else {
                     this.setState({commits: []});
                 }
-                this.setState({clicked: !this.state.clicked})
+                this.setState({clicked: !this.state.clicked});
             })
-            .then(res => console.log(this.state.commits))
+            .then(res => console.log(this.state.commits));
     }
 
     render () {
@@ -47,17 +47,19 @@ class RepoItem extends React.Component {
                             Forks: {this.props.repo.forks}
                         </p>
                         <p>
-                            <i class="fa fa-eye"></i>
+                            <i className="fa fa-eye"></i>
                             Watchers: {this.props.repo.watchers}
                         </p>
                         <p>
-                            <i class="fa fa-pen-square"></i>
+                            <i className="fa fa-pen-square"></i>
                             Language: {this.props.repo.language}
                         </p>
                     </div>
                 </div>
-                <div>
-                    { this.state.clicked ? commits : <div></div> }
+                <div id='modal'>
+                    <div className='modalcontent'>
+                        { this.state.clicked ? commits : <div></div> }
+                    </div>
                 </div>
             </div>
 
