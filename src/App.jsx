@@ -38,14 +38,15 @@ class App extends React.Component {
   }
 
   // handleModal(idx) {
-  //   let repo = this.state.repos.filter(ele => ele.id === idx);
-  //   this.setState({commits: repo.commits})
+  //   // let repo = this.state.repos.filter(ele => ele.id === idx);
+  //   // this.setState({commits: repo.commits})
   // }
 
-  handleModal(idx) {
-    let repo = this.state.repos.filter(ele => ele.id === idx);
-
-    fetch(`https://api.github.com/repos/${this.state.org}/${repo.name}/commits`)
+  handleModal(name) {
+    console.log(name)
+    // let repo = this.state.repos.filter(ele => ele.id === idx);
+    debugger
+    fetch(`https://api.github.com/repos/${this.state.org}/${name}/commits`)
       .then(res => res.json())
       .then(res => {
         // console.log(Array.isArray(res))
@@ -61,7 +62,7 @@ class App extends React.Component {
 
 
   render () {
-    console.log(this.state.repos)
+    // console.log(this.state.repos);
     return (
 
       <div className="App">
@@ -78,7 +79,7 @@ class App extends React.Component {
           </form>
         </div>
           <Repos org={this.state.org} repos={this.state.repos} handleModal={this.handleModal} />
-          <Modal commits={this.state.commits}/>
+          {/* <Modal commits={this.state.commits}/> */}
       </div>
     );
 

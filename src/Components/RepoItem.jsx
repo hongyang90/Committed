@@ -9,7 +9,7 @@ class RepoItem extends React.Component {
                     // commits: [],
                     // clicked: false
         };
-        this.showCommit = this.showCommit.bind(this);
+        // this.showCommit = this.showCommit.bind(this);
     }
 
     // showCommit() {
@@ -34,11 +34,11 @@ class RepoItem extends React.Component {
 
         return (
             <div className='repoItem'>
-                <div className='repoInfo' onClick={this.showCommit} >
+                <div className='repoInfo' >
                     <h1 className='repoName'>
                        Repo Name: {this.state.name.toUpperCase()}
                        <button className='commitbutton' 
-                       onClick={this.props.handleModal(this.props.repo.id)}>See Commits</button>
+                       onClick={this.props.handleModal.bind(this, this.state.name)}>See Commits</button>
                     </h1>
                     <p className='description'>
                         Description: {this.props.repo.description}
