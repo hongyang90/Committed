@@ -28,10 +28,19 @@
             width: 100%;
             background: white;
             border-radius: 5px 5px 0px 0px;
+
+            .empty {
+                width: 25%;
+            }
+
             .repoName {
+                display: flex;
+                // justify-content: center;
+                align-self: flex-start;
                 margin-bottom: 1%;
                 font-size: 22px;
                 color: #0B4F6C;
+                width: 90%;
             }
 
             .description {
@@ -56,12 +65,29 @@
 
         }
 
-        .repoInfo:hover {
-            cursor: pointer;
-        }
-
-
     }
 
 }
 
+
+.repoheader {
+    display: flex;
+    width: 80%;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 5px;
+}
+.commitbutton {
+    // display: flex;
+    // align-self: flex-end;
+    color: white;
+    height: 30px;
+    width: 100px;
+    background: #01BAEF;
+    border-radius: 5px;
+    font-size: 12px;
+}
+
+.commitbutton:hover {
+    cursor: pointer;
+}

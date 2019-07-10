@@ -13,6 +13,7 @@ class Modal extends React.Component {
         return (
             <div id='modal'>
                 <div className='modalcontent'>
+                    <h1>I am a Modal</h1>
                     {commits}
                 </div>
             </div>

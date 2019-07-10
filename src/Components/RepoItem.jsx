@@ -34,11 +34,15 @@ class RepoItem extends React.Component {
         return (
             <div className='repoItem'>
                 <div className='repoInfo' >
-                    <h1 className='repoName'>
-                       Repo Name: {this.state.name.toUpperCase()}
-                       <button className='commitbutton' 
-                       onClick={this.props.handleModal.bind(this, this.state.name)}>See Commits</button>
-                    </h1>
+                    <div className='repoheader'>
+                        <div className='empty'></div>
+                        <h1 className='repoName'>
+                        Repo Name: {this.state.name.toUpperCase()}
+                        </h1>
+
+                        <button className='commitbutton' 
+                        onClick={this.props.handleModal.bind(this, this.state.name)}>See Commits</button>
+                    </div>
                     <p className='description'>
                         Description: {this.props.repo.description}
                     </p>
