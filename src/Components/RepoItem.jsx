@@ -35,7 +35,6 @@ class RepoItem extends React.Component {
             <div className='repoItem'>
                 <div className='repoInfo' >
                     <div className='repoheader'>
-                        <div className='empty'></div>
                         <h1 className='repoName'>
                         Repo Name: {this.state.name.toUpperCase()}
                         </h1>

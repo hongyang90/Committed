@@ -42,10 +42,15 @@ class App extends React.Component {
   //   // this.setState({commits: repo.commits})
   // }
 
+  toggleModal(){
+    let modal = document.querySelector('.modal');
+    modal.classList.toggle('show-modal');
+  }
+
   handleModal(name) {
     console.log(name)
     // let repo = this.state.repos.filter(ele => ele.id === idx);
-    debugger
+    // debugger
     fetch(`https://api.github.com/repos/${this.state.org}/${name}/commits`)
       .then(res => res.json())
       .then(res => {
@@ -57,7 +62,8 @@ class App extends React.Component {
         }
         this.setState({ clicked: !this.state.clicked });
       })
-      .then(res => console.log(this.state.commits));
+      this.toggleModal();
+      // .then(res => console.log(this.state.commits));
   }
 
 
@@ -79,7 +85,7 @@ class App extends React.Component {
           </form>
         </div>
           <Repos org={this.state.org} repos={this.state.repos} handleModal={this.handleModal} />
-          <Modal commits={this.state.commits} clicked={this.state.clicked}/>
+          <Modal closeModal={this.toggleModal} commits={this.state.commits} clicked={this.state.clicked}/>
       </div>
     );
 

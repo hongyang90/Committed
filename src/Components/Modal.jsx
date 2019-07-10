@@ -6,14 +6,15 @@ class Modal extends React.Component {
 
     render () {
         let commits = this.props.commits.map( ele => {
-            return <CommitItem commit={ele}/>
+            return <CommitItem key={ele.id} commit={ele}/>
         });
 
    
         return (
-            <div id='modal'>
+            <div className='modal'>
                 <div className='modalcontent'>
-                    <h1>I am a Modal</h1>
+                    <span className="close-button" onClick={this.props.closeModal}>&times;</span>
+                    <h1>Recent Commmits for Repo</h1>
                     {commits}
                 </div>
             </div>

@@ -5,8 +5,8 @@ class CommitItem extends React.Component {
 
     render() {
         return (
-            <div>
-                {this.props.commit.message}
+            <div className='commitItem'> 
+                {this.props.commit.commit.message}
             </div>
         )
     }
