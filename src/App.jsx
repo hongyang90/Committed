@@ -15,6 +15,8 @@ class App extends React.Component {
     this.updateInput = this.updateInput.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleModal = this.handleModal.bind(this);
+
+    window.addEventListener("click", this.windowOnClick.bind(this));
   }
 
   handleSubmit(e){
@@ -41,6 +43,13 @@ class App extends React.Component {
   //   // let repo = this.state.repos.filter(ele => ele.id === idx);
   //   // this.setState({commits: repo.commits})
   // }
+  windowOnClick (e) {
+    let modal = document.querySelector('.modal');
+
+    if (e.target === modal) {
+      this.toggleModal();
+    }
+  }
 
   toggleModal(){
     let modal = document.querySelector('.modal');
@@ -62,8 +71,8 @@ class App extends React.Component {
         }
         this.setState({ clicked: !this.state.clicked });
       })
+      .then(res => console.log(this.state.commits));
       this.toggleModal();
-      // .then(res => console.log(this.state.commits));
   }
 
 
