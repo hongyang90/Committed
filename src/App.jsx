@@ -79,7 +79,7 @@ class App extends React.Component {
           </form>
         </div>
           <Repos org={this.state.org} repos={this.state.repos} handleModal={this.handleModal} />
-          {/* <Modal commits={this.state.commits}/> */}
+          <Modal commits={this.state.commits} clicked={this.state.clicked}/>
       </div>
     );
 

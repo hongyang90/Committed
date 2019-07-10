@@ -1,5 +1,4 @@
 import React from 'react';
-import CommitItem from './CommitItem';
 
 class RepoItem extends React.Component {
     constructor(props){
