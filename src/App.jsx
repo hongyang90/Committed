@@ -10,7 +10,8 @@ class App extends React.Component {
       org: '',
       repos: [],
       commits: [],
-      clicked: false
+      repoName: '',
+      // clicked: false
     };
     this.updateInput = this.updateInput.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -66,10 +67,11 @@ class App extends React.Component {
         // console.log(Array.isArray(res))
         if (Array.isArray(res)) {
           this.setState({ commits: res });
+          this.setState({repoName: name});
         } else {
           this.setState({ commits: [] });
         }
-        this.setState({ clicked: !this.state.clicked });
+        // this.setState({ clicked: !this.state.clicked });
       })
       .then(res => console.log(this.state.commits));
       this.toggleModal();
@@ -94,7 +96,7 @@ class App extends React.Component {
           </form>
         </div>
           <Repos org={this.state.org} repos={this.state.repos} handleModal={this.handleModal} />
-          <Modal closeModal={this.toggleModal} commits={this.state.commits} clicked={this.state.clicked}/>
+          <Modal name={this.state.repoName} closeModal={this.toggleModal} commits={this.state.commits} clicked={this.state.clicked}/>
       </div>
     );
 

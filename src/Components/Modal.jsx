@@ -14,7 +14,7 @@ class Modal extends React.Component {
             <div className='modal'>
                 <div className='modalcontent'>
                     <span className="close-button" onClick={this.props.closeModal}>&times;</span>
-                    <h1>Recent Commmits for Repo</h1>
+                    <h1 className='modalHeader'>Recent Commmits for {this.props.name.toUpperCase()}</h1>
                     {commits}
                 </div>
             </div>

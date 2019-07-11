@@ -9,9 +9,13 @@ class CommitItem extends React.Component {
         let date = this.props.commit.commit.committer.date.split('T')[0];
         return (
             <div className='commitItem'>
-                <span>{author}</span>
-                <span>{date}</span> 
-                <p> {message}</p>
+                <div className='leftInfo'>
+                    <span>Committer: {author}</span>
+                    <span>Date: {date}</span> 
+                </div>
+                <div className='rightInfo'>
+                    Message: {message}
+                </div>
             </div>
         )
     }

@@ -1,8 +1,38 @@
 .commitItem {
     display: flex;
     // flex-direction: column;
-    justify-content: center;
-    height: 100px;
+    justify-content: space-between;
+    height: 125px;
     width: 100%;
+    margin-top: 15px;
+
+    .leftInfo {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        width: 30%;
+        background: white;
+        border-right: 1px solid black;
+        font-size: 16px;
+        // height: 50%;
+        
+        // span {
+        //     width: 20%;
+        //     height: 10%;
+        // }
+    }
+
+    .rightInfo {
+        display: flex;
+        width: 70%;
+        overflow: scroll;
+        text-overflow: ellipsis;
+        background: white;
+        padding: 10px;
+        letter-spacing: 1px;
+        line-height: 22px;
+        font-size: 14px;
+    }
 
 }
