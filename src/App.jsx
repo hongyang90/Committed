@@ -84,10 +84,11 @@ class App extends React.Component {
             Search organization repos and their commits
           </h2>
           <form action="" onSubmit={this.handleSubmit}>
-            <input type="text" onChange={this.updateInput} placeholder='Enter a organization ie: facebook'/>
+            <input type="text" onChange={this.updateInput} placeholder='Enter a organization ie: facebook,google'/>
             <button type='submit' >Search</button>
           </form>
         </div>
+          
           <Repos org={this.state.org} repos={this.state.repos} handleModal={this.handleModal} />
           <Modal name={this.state.repoName} closeModal={this.toggleModal} commits={this.state.commits} clicked={this.state.clicked}/>
       </div>

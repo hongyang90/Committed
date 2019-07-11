@@ -10,9 +10,12 @@ class Repos extends React.Component {
             handleModal={this.props.handleModal}/>
         });
 
+        let empty = <div className='empty'>No Results</div>
+
         return (
             <div className='results'>
-                {repos}
+                {!this.props.repos.length ? empty : repos }
+                
             </div>
         )
     }
