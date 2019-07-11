@@ -5,8 +5,7 @@ class RepoItem extends React.Component {
         super(props);
         this.state = {name: this.props.repo.name,
                     org: this.props.org,
-                    // commits: [],
-                    // clicked: false
+             
         };
         // this.showCommit = this.showCommit.bind(this);
     }
@@ -60,11 +59,6 @@ class RepoItem extends React.Component {
                         </p>
                     </div>
                 </div>
-                {/* <div id='modal'>
-                    <div className='modalcontent'>
-                        { this.state.clicked ? commits : <div></div> }
-                    </div>
-                </div> */}
             </div>
 
         )

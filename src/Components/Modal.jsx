@@ -6,7 +6,7 @@ class Modal extends React.Component {
 
     render () {
         let commits = this.props.commits.map( ele => {
-            return <CommitItem key={ele.id} commit={ele}/>
+            return <CommitItem key={ele.node_id} commit={ele}/>
         });
 
    

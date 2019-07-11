@@ -11,7 +11,6 @@ class App extends React.Component {
       repos: [],
       commits: [],
       repoName: '',
-      // clicked: false
     };
     this.updateInput = this.updateInput.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -28,10 +27,9 @@ class App extends React.Component {
       .then(res => res.json())
       .then(res => {
         if (Array.isArray(res)) {
-            this.setState({ repos: res.sort((a, b) => b.forks - a.forks) })
+            this.setState({ repos: res.sort((a, b) => b.forks - a.forks) });
           }
       });
-      // .then(res => this.setState({repos: res}))
       // .then(() => console.log(this.state.repos))
       
   }
@@ -40,10 +38,7 @@ class App extends React.Component {
     this.setState({org: e.currentTarget.value});
   }
 
-  // handleModal(idx) {
-  //   // let repo = this.state.repos.filter(ele => ele.id === idx);
-  //   // this.setState({commits: repo.commits})
-  // }
+
   windowOnClick (e) {
     let modal = document.querySelector('.modal');
 
@@ -59,7 +54,6 @@ class App extends React.Component {
 
   handleModal(name) {
     console.log(name)
-    // let repo = this.state.repos.filter(ele => ele.id === idx);
     // debugger
     fetch(`https://api.github.com/repos/${this.state.org}/${name}/commits`)
       .then(res => res.json())
@@ -71,7 +65,6 @@ class App extends React.Component {
         } else {
           this.setState({ commits: [] });
         }
-        // this.setState({ clicked: !this.state.clicked });
       })
       .then(res => console.log(this.state.commits));
       this.toggleModal();
