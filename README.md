@@ -1,5 +1,13 @@
 This project was made with [Create React App](https://github.com/facebook/create-react-app).
 
+## How to run this App
+
+1. Clone this repository into a local folder.
+2. Run `npm install` in the main directory.
+3. To run the app locally run `npm start` which will start the app in localhost:3000.
+
+Below are the deafults scripts from Create React App. Note that only `npm start` is the only one used for this application.
+
 ## Available Scripts
 
 In the project directory, you can run:
